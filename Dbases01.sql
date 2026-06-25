@@ -15,14 +15,19 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 ALTER TABLE animales MODIFY COLUMN id int auto_increment;
 
 -- Agregar clumnas a una tabla previamemte creada
-ALTER TABLE mascotas
-ADD COLUMN nombre varchar (50);
+ALTER TABLE animales
+ADD COLUMN nombre varchar (50)
+FIRST;
 
 -- Muestra todo lo que contiene la tabla "animales"
 SELECT * FROM animales;
 
+-- Con esto eliminamos columnas de una tabla
+ALTER TABLE animales
+DROP COLUMN nombre;
+
 -- Insercion de datos en tablas
-INSERT INTO  animales (tipo, nombre, estado) VALUES ('gato', 'Miklo', 'feliz');
+INSERT INTO  animales (tipo, estado, nombre) VALUES ('gato', 'Miklo', 'feliz');
 
 -- Te mustra el ejemplo de como se debe crear una tabla correctamente
 SHOW CREATE TABLE animales;
