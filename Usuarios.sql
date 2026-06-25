@@ -12,7 +12,7 @@ use usuarios;
 create table usuarios(
 	id int not null auto_increment,
     nombre varchar(50) not null,
-    lastname varchar (30),
+    lastname varchar (50),
     edad int not null,
     email varchar (100) not null,
     primary key(id)
@@ -20,7 +20,7 @@ create table usuarios(
 
 							-- INSERCION DE DATOS --
 -- con estas lineas de comandos insertamos datos en las columnas de la tabla.
-insert into usuarios (nombre, edad, email) values ( 'carlos', 34, 'carlos@gmail.com');
+insert into usuarios (nombre, lastname, edad, email) values ( 'carlos','lara', 34, 'carlos@gmail.com');
 insert into usuarios (nombre, edad, email) values ('emmanuel', 34,  'Emmanuel@gmail.com');
 insert into usuarios (nombre, edad, email)values('el piber',  14, 'Piber@gmail.com');
 insert into usuarios (nombre, edad, email) values('el gordo',  12, 'Gordo@gmail.com');
@@ -28,8 +28,8 @@ insert into usuarios (nombre, edad, email) values('Emmnuel', 34, 'flaktronik@hot
 insert into usuarios (nombre, edad, email)values ('Emi', 6, 'emmi@outlook.es');
 
 							-- BUSQUEDA Y MUESTREO DE DATOS --
--- con la siguinete linea miramos todo el contenido de la tabla "user".
-select * from user;
+-- con la siguinete linea miramos todo el contenido de la tabla "usuarios".
+select * from usuarios;
 
 -- con este comando mostramos un dato espesifico poniendo un valor que exista dentro de alguana columna de la tabla.
 select * from user where edad = 34;

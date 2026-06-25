@@ -1,12 +1,13 @@
-create database Dbase01;
-show databases;
-use Dbase01; 
+create database Dbase01; -- Creacion de la Base de Datos
+show databases; -- Muestra todas las BDD que tenemops en existencia
+use Dbase01; -- Se ejecuta antes de todo para que sepamos que vamos a trabajar sobre esa BDD
+
+-- Creacion de la BDD
 CREATE TABLE animales(
 id int,
 nombre varchar(255),
 tipo varchar(255),
 estado varchar(255),
-
 PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primaria, en este caso colocamos "id" como llave primaria.
 );
 
