@@ -5,7 +5,6 @@ use Dbase01; -- Se ejecuta antes de todo para que sepamos que vamos a trabajar s
 -- Creacion de la BDD
 CREATE TABLE animales(
 id int,
-nombre varchar(255),
 tipo varchar(255),
 estado varchar(255),
 PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primaria, en este caso colocamos "id" como llave primaria.
@@ -15,13 +14,21 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 -- con la siguiente linea modificamos la tabla 'animales' y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
 ALTER TABLE animales MODIFY COLUMN id int auto_increment;
 
+-- Agregar clumnas a una tabla previamemte creada
+ALTER TABLE mascotas
+ADD COLUMN nombre varchar (50);
+
+-- Muestra todo lo que contiene la tabla "animales"
+SELECT * FROM animales;
+
 -- Insercion de datos en tablas
 INSERT INTO  animales (tipo, nombre, estado) VALUES ('gato', 'Miklo', 'feliz');
 
--- Te mustra la manera en la que una tabla debe crearse de la manera corrcta
+-- Te mustra el ejemplo de como se debe crear una tabla correctamente
 SHOW CREATE TABLE animales;
 
--- Ejemplo de tabla creada desde un principio de la manera correcta con el parametro 'id' autoincrementable.
+-- te arroja este ejemplo, desde un principio con el parametro 'id' autoincrementable, lo puedes copiar y pegar par la creacion de una tabla nueva
+-- solo quitar las comillas del principio y fin, y poner nuevo nombre a la tabla.
 'CREATE TABLE `animales` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(255) DEFAULT NULL,
@@ -32,15 +39,11 @@ SHOW CREATE TABLE animales;
 -- Creacion correcta de una tabla nueva, con 'id' autoincrementable desde un principio 
 CREATE TABLE `mascotas` (
   id_mascota int NOT NULL AUTO_INCREMENT,
-  `tipo` varchar(255) DEFAULT NULL,
-  `estado` varchar(255) DEFAULT NULL,
+  `tipo` varchar(25) DEFAULT NULL, -- tratar de utilizar los caracteres necesarios para optimizar
+  `estado` varchar(25) DEFAULT NULL, -- DEFAULT NULL significa que este campo no puede estar vacio en una tabla, forzozamente debe contener un dato
   PRIMARY KEY (`id`)
 );
 
--- Agregar clumnas a una tabla previamemte creada
-ALTER TABLE mascotas
-ADD COLUMN nombre varchar (50);
 
 
 
-SELECT * FROM animales;
