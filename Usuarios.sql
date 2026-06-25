@@ -9,10 +9,10 @@ use usuarios;
 
 -- Despues creamos una tabla dentro de la base de datos "Usuarios" con las siguinetes columnas
 -- ID autoincrementable, nombre de tipo 'caracter', edad de tipo 'entero', email de tipo 'caracter'.
-create table user(
+create table usuarios(
 	id int not null auto_increment,
-    name varchar(50) not null,
-    lastname varchar (30) not null,
+    nombre varchar(50) not null,
+    lastname varchar (30),
     edad int not null,
     email varchar (100) not null,
     primary key(id)
@@ -20,12 +20,12 @@ create table user(
 
 							-- INSERCION DE DATOS --
 -- con estas lineas de comandos insertamos datos en las columnas de la tabla.
-insert into user (name, edad, email) values ( 'carlos', 34, 'carlos@gmail.com');
-insert into user (name, edad, email) values ('emmanuel', 34,  'Emmanuel@gmail.com');
-insert into user (name, edad, email)values('el piber',  14, 'Piber@gmail.com');
-insert into user(name, edad, email) values('el gordo',  12, 'Gordo@gmail.com');
-insert into user(name, edad, email) values('Emmnuel', 34, 'flaktronik@hotmail.com');
-insert into user(name, edad, email)values ('Emi', 6, 'emmi@outlook.es');
+insert into usuarios (nombre, edad, email) values ( 'carlos', 34, 'carlos@gmail.com');
+insert into usuarios (nombre, edad, email) values ('emmanuel', 34,  'Emmanuel@gmail.com');
+insert into usuarios (nombre, edad, email)values('el piber',  14, 'Piber@gmail.com');
+insert into usuarios (nombre, edad, email) values('el gordo',  12, 'Gordo@gmail.com');
+insert into usuarios (nombre, edad, email) values('Emmnuel', 34, 'flaktronik@hotmail.com');
+insert into usuarios (nombre, edad, email)values ('Emi', 6, 'emmi@outlook.es');
 
 							-- BUSQUEDA Y MUESTREO DE DATOS --
 -- con la siguinete linea miramos todo el contenido de la tabla "user".

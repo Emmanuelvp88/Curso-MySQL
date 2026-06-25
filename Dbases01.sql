@@ -3,6 +3,7 @@ show databases;
 use Dbase01; 
 CREATE TABLE animales(
 id int,
+nombre varchar(255),
 tipo varchar(255),
 estado varchar(255),
 
@@ -14,7 +15,7 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 ALTER TABLE animales MODIFY COLUMN id int auto_increment;
 
 -- Insercion de datos en tablas
-INSERT INTO  animales (tipo, estado) VALUES ('Miklo', 'feliz');
+INSERT INTO  animales (tipo, nombre, estado) VALUES ('gato', 'Miklo', 'feliz');
 
 -- Te mustra la manera en la que una tabla debe crearse de la manera corrcta
 SHOW CREATE TABLE animales;
@@ -29,9 +30,11 @@ SHOW CREATE TABLE animales;
 
 -- Creacion correcta de una tabla nueva, con 'id' autoincrementable desde un principio 
 CREATE TABLE `mascotas` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  id_mascota int NOT NULL AUTO_INCREMENT,
+  -- nombre varchar (255), 
   `tipo` varchar(255) DEFAULT NULL,
   `estado` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
+SELECT * FROM animales;
