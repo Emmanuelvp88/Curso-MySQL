@@ -32,10 +32,15 @@ SHOW CREATE TABLE animales;
 -- Creacion correcta de una tabla nueva, con 'id' autoincrementable desde un principio 
 CREATE TABLE `mascotas` (
   id_mascota int NOT NULL AUTO_INCREMENT,
-  -- nombre varchar (255), 
   `tipo` varchar(255) DEFAULT NULL,
   `estado` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+-- Agregar clumnas a una tabla previamemte creada
+ALTER TABLE mascotas
+ADD COLUMN nombre varchar (50);
+
+
 
 SELECT * FROM animales;
