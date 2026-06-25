@@ -14,20 +14,24 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 -- con la siguiente linea modificamos la tabla 'animales' y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
 ALTER TABLE animales MODIFY COLUMN id int auto_increment;
 
--- Agregar clumnas a una tabla previamemte creada
+-- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
-ADD COLUMN nombre varchar (50)
+ADD COLUMN id varchar (50)
 FIRST;
-
--- Muestra todo lo que contiene la tabla "animales"
-SELECT * FROM animales;
 
 -- Con esto eliminamos columnas de una tabla
 ALTER TABLE animales
 DROP COLUMN nombre;
 
+-- Muestra todo lo que contiene la tabla "animales"
+SELECT * FROM animales;
+
+-- Para eliminar un resgistro nediante el id
+DELETE FROM animales
+WHERE id = null;
+
 -- Insercion de datos en tablas
-INSERT INTO  animales (tipo, estado, nombre) VALUES ('gato', 'Miklo', 'feliz');
+INSERT INTO  animales (nombre, tipo, estado) VALUES ( 'Miklo','gato', 'feliz');
 
 -- Te mustra el ejemplo de como se debe crear una tabla correctamente
 SHOW CREATE TABLE animales;
