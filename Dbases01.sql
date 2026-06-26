@@ -1,5 +1,7 @@
 create database Dbase01; -- Creacion de la Base de Datos
+
 show databases; -- Muestra todas las BDD que tenemops en existencia
+
 use Dbase01; -- Se ejecuta antes de todo para que sepamos que vamos a trabajar sobre esa BDD
 
 -- Creacion de la BDD
@@ -13,31 +15,12 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 -- Antes de cualquier insercion de datos en una tabla, necesitamos indicar como se va hacer el conteo de cada insercion, haciendo autoincrementable la llave primaria "id"
 -- con la siguiente linea modificamos la tabla 'animales' y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
 ALTER TABLE animales 
-MODIFY COLUMN id int auto_increment PRIMARY KEY;
+ MODIFY COLUMN id int auto_increment PRIMARY KEY;
 
 -- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
-ADD COLUMN nombre varchar (50)
-FIRST;
-
--- Con esto eliminamos columnas de una tabla
-ALTER TABLE animales
-DROP COLUMN nombre;
-
-UPDATE animales
-SET id =  3
-WHERE id = 4;
-
-
--- Muestra todo lo que contiene la tabla "animales"
-SELECT * FROM animales;
-
-
-
--- Para eliminar un resgistro Mediante el id con limite
-DELETE FROM animales
-WHERE id IS NULL
-LIMIT 1;
+ ADD COLUMN nombre varchar (50)
+  FIRST;
 
 -- Insercion de datos en tablas
 INSERT INTO  animales (id, nombre, tipo, estado)
@@ -46,14 +29,35 @@ INSERT INTO  animales (id, nombre, tipo, estado)
 INSERT INTO animales (nombre, tipo, estado)
  VALUES ('Whalter','Perro','Mongolo');
  
- INSERT INTO animales (nombre, tipo, estado) 
+INSERT INTO animales (nombre, tipo, estado) 
  VALUES ('chikis', 'Perro','Muy feliz');
 
 INSERT INTO animales (nombre, tipo, estado)
-VALUES ('la peque', 'Perro','enojona');
+ VALUES ('la peque', 'Perro','enojona');
 
 INSERT INTO animales (nombre, tipo, estado)
-VALUES('canelita', 'Perro', 'tranquila');
+ VALUES('canelita', 'Perro', 'tranquila');
+
+
+
+-- Eliminacion de columnas de una tabla
+ALTER TABLE animales
+ DROP COLUMN nombre;
+
+-- Actualizacion de numero de id en una tabla
+UPDATE animales
+ SET id =  3
+  WHERE id = 4;
+
+
+-- Muestra todo lo que contiene la tabla "animales"
+SELECT * FROM animales;
+
+
+-- Para eliminar un resgistro Mediante el id con limite
+DELETE FROM animales
+WHERE id IS NULL
+LIMIT 1;
 
 
 
