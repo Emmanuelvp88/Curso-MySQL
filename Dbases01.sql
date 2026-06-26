@@ -12,8 +12,8 @@ estado varchar(255),
 PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primaria, en este caso colocamos "id" como llave primaria.
 );
 
--- Antes de cualquier insercion de datos en una tabla, necesitamos indicar como se va hacer el conteo de cada insercion, haciendo autoincrementable la llave primaria "id"
--- con la siguiente linea modificamos la tabla 'animales' y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
+-- Ahora veremos como modificamos la tabla creada y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
+-- Antes de cualquier insercion de datos en una tabla, necesitamos indicar como se hara el conteo de cada insercion, haciendo autoincrementable "id" que es la llave primaria.
 ALTER TABLE animales 
  MODIFY COLUMN id int auto_increment PRIMARY KEY;
 
@@ -39,7 +39,13 @@ INSERT INTO animales (nombre, tipo, estado)
 SELECT * FROM animales;
 
 -- "SELECT" significa la columna, "FROM" la tabla, "WHERE" el dato en espesifico que queremos consultar
-SELECT estado, nombre FROM animales WHERE  id = 3;
+SELECT estado, nombre 
+ FROM animales
+  WHERE  id = 3;
+  
+  -- Buscar todas las "clumnas" de la tabla "animales" con el estado "feliz" 
+SELECT * FROM animales
+ WHERE estado = 'feliz';
 
 -- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
