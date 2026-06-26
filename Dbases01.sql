@@ -17,10 +17,7 @@ PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primar
 ALTER TABLE animales 
  MODIFY COLUMN id int auto_increment PRIMARY KEY;
 
--- Agregar nuevas columnas a una tabla existente
-ALTER TABLE animales
- ADD COLUMN nombre varchar (50)
-  FIRST;
+
 
 -- Insercion de datos en tablas
 INSERT INTO  animales (id, nombre, tipo, estado)
@@ -38,8 +35,17 @@ INSERT INTO animales (nombre, tipo, estado)
 INSERT INTO animales (nombre, tipo, estado)
  VALUES('canelita', 'Perro', 'tranquila');
 
+-- Muestra o consulta todo lo que contiene la tabla "animales"
+SELECT * FROM animales;
 
+-- "SELECT" significa la columna, "FROM" la tabla, "WHERE" el dato en espesifico que queremos consultar
+SELECT estado, nombre FROM animales WHERE  id = 3;
 
+-- Agregar nuevas columnas a una tabla existente
+ALTER TABLE animales
+ ADD COLUMN nombre varchar (50)
+  FIRST;
+  
 -- Eliminacion de columnas de una tabla
 ALTER TABLE animales
  DROP COLUMN nombre;
@@ -48,11 +54,6 @@ ALTER TABLE animales
 UPDATE animales
  SET id =  3
   WHERE id = 4;
-
-
--- Muestra todo lo que contiene la tabla "animales"
-SELECT * FROM animales;
-
 
 -- Para eliminar un resgistro Mediante el id con limite
 DELETE FROM animales
