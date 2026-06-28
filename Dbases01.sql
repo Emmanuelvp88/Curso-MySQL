@@ -51,6 +51,9 @@ INSERT INTO animales (nombre, tipo, estado)
 INSERT INTO animales (nombre, tipo, estado)
  VALUES('canelita', 'Perro', 'tranquila');
 
+-- Se renombra una tabla
+RENAME TABLE animales TO mascotas;
+
 -- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
  ADD COLUMN nombre varchar (50)
@@ -84,15 +87,26 @@ DELETE FROM animales
  WHERE id = 2;
 
 -- Esta consulta envia un error, el 1175 donde dice que no se puede borrrar registros mediante
--- otra columna que no se la de "id" Primary Key
+-- otra columna que no se la de "id" Primary Key, "safe mode" de SQL
 DELETE FROM animales
  WHERE nombre = 'Whalter';
 
--- Con esta consulta Eliminamos absolutamente tos los registros de una tabla
+-- Con esta consulta Eliminamos absolutamente todos los registros de una tabla
 TRUNCATE TABLE animales;
 
+-- Eliminacion de una tabla por completo
+DROP TABLE mascotas;
 
-SELECT * FROM animales;
+
+SELECT * FROM mascotas;
+
+
+
+
+
+
+
+
 
 -- Te mustra el ejemplo de como se debe crear una tabla correctamente
 SHOW CREATE TABLE animales;
