@@ -1,3 +1,6 @@
+
+					-----------------   CREAD    -------------------
+                
 create database Dbase01; -- Creacion de la Base de Datos
 
 show databases; -- Muestra todas las BDD que tenemops en existencia
@@ -12,13 +15,26 @@ estado varchar(255),
 PRIMARY KEY (id) -- Tenemos que indicar que parametro seria nuestra llave primaria, en este caso colocamos "id" como llave primaria.
 );
 
--- Ahora veremos como modificamos la tabla creada y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
--- Antes de cualquier insercion de datos en una tabla, necesitamos indicar como se hara el conteo de cada insercion, haciendo autoincrementable "id" que es la llave primaria.
-ALTER TABLE animales 
- MODIFY COLUMN id int auto_increment PRIMARY KEY;
+
+						-----------------  READ  -------------------
+
+-- Muestra o consulta todo lo que contiene la tabla "animales"
+SELECT * FROM animales;
+
+-- "SELECT" significa la columna, "FROM" la tabla, "WHERE" el dato en espesifico que queremos consultar
+SELECT estado, nombre 
+ FROM animales
+  WHERE  id = 3;
+  
+  -- Buscar todas las "clumnas" de la tabla "animales" con el estado "feliz" 
+SELECT * FROM animales
+ WHERE estado = 'feliz';
 
 
+  
 
+						----------------  UPDATE   -------------------
+                            
 -- Insercion de datos en tablas
 INSERT INTO  animales (id, nombre, tipo, estado)
  VALUES (1, 'Miklo','gato', 'feliz');
@@ -35,22 +51,19 @@ INSERT INTO animales (nombre, tipo, estado)
 INSERT INTO animales (nombre, tipo, estado)
  VALUES('canelita', 'Perro', 'tranquila');
 
--- Muestra o consulta todo lo que contiene la tabla "animales"
-SELECT * FROM animales;
-
--- "SELECT" significa la columna, "FROM" la tabla, "WHERE" el dato en espesifico que queremos consultar
-SELECT estado, nombre 
- FROM animales
-  WHERE  id = 3;
-  
-  -- Buscar todas las "clumnas" de la tabla "animales" con el estado "feliz" 
-SELECT * FROM animales
- WHERE estado = 'feliz';
-
 -- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
  ADD COLUMN nombre varchar (50)
   FIRST;
+
+-- Ahora veremos como modificamos la tabla creada y seleccionamos el parametro que queremos que sea Autoincrementable en este caso 'id' .
+-- Antes de cualquier insercion de datos en una tabla, necesitamos indicar como se hara el conteo de cada insercion, haciendo autoincrementable "id" que es la llave primaria.
+ALTER TABLE animales 
+ MODIFY COLUMN id int auto_increment PRIMARY KEY;
+
+
+
+					----------------  DELETE  -----------------
   
 -- Eliminacion de columnas de una tabla
 ALTER TABLE animales
@@ -61,15 +74,17 @@ UPDATE animales
  SET id =  3
   WHERE id = 4;
 
--- Para eliminar un resgistro Mediante el id con limite
+-- Para eliminar un resgistro Mediante el id, con limite de 1
 DELETE FROM animales
 WHERE id IS NULL
 LIMIT 1;
 
+-- Eliminacion del registro con id = 2
+DELETE FROM animales 
+WHERE id = 2;
 
 
-
-
+SELECT * FROM animales;
 
 -- Te mustra el ejemplo de como se debe crear una tabla correctamente
 SHOW CREATE TABLE animales;
