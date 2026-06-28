@@ -35,9 +35,11 @@ SELECT * FROM animales
 
 						----------------  UPDATE   -------------------
                             
+SELECT * FROM mascotas;
+                            
 -- Insercion de datos en tablas
-INSERT INTO  animales (id, nombre, tipo, estado)
- VALUES (1, 'Miklo','gato', 'feliz');
+INSERT INTO  animales ( nombre, tipo, estado)
+ VALUES ( 'Miklo','gato', 'feliz');
  
 INSERT INTO animales (nombre, tipo, estado)
  VALUES ('Whalter','Perro','Mongolo');
@@ -51,8 +53,21 @@ INSERT INTO animales (nombre, tipo, estado)
 INSERT INTO animales (nombre, tipo, estado)
  VALUES('canelita', 'Perro', 'tranquila');
 
+
+INSERT INTO mascotas(nombre, tipo, estado)
+VALUES ('Miklo', 'gato', 'feliz tonto');
+
+INSERT INTO mascotas (nombre, tipo, estado)
+ VALUES ('Walter', 'perro', 'mongolo');
+
 -- Se renombra una tabla
-RENAME TABLE animales TO mascotas;
+RENAME TABLE animales 
+ TO mascotas;
+
+-- Actualizacion de numero de id en una tabla
+UPDATE animales -- actualizar animales
+ SET id =  3  -- establecer id 3
+  WHERE id = 4; -- donde id sea 4
 
 -- Agregar nuevas columnas a una tabla existente
 ALTER TABLE animales
@@ -67,15 +82,12 @@ ALTER TABLE animales
 
 
 					----------------  DELETE  -----------------
+  SELECT * FROM mascotas;
+  
   
 -- Eliminacion de columnas de una tabla
 ALTER TABLE animales
  DROP COLUMN nombre;
-
--- Actualizacion de numero de id en una tabla
-UPDATE animales
- SET id =  3
-  WHERE id = 4;
 
 -- Para eliminar un resgistro Mediante el id, con limite de 1
 DELETE FROM animales
@@ -92,13 +104,15 @@ DELETE FROM animales
  WHERE nombre = 'Whalter';
 
 -- Con esta consulta Eliminamos absolutamente todos los registros de una tabla
-TRUNCATE TABLE animales;
+TRUNCATE TABLE mascotas;
 
 -- Eliminacion de una tabla por completo
 DROP TABLE mascotas;
 
 
-SELECT * FROM mascotas;
+
+
+
 
 
 
