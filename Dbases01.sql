@@ -79,9 +79,17 @@ DELETE FROM animales
 WHERE id IS NULL
 LIMIT 1;
 
--- Eliminacion del registro con id = 2
+-- Eliminacion del registro con id = 2, esta es la manera correcta de borar un registro
 DELETE FROM animales 
-WHERE id = 2;
+ WHERE id = 2;
+
+-- Esta consulta envia un error, el 1175 donde dice que no se puede borrrar registros mediante
+-- otra columna que no se la de "id" Primary Key
+DELETE FROM animales
+ WHERE nombre = 'Whalter';
+
+-- Con esta consulta Eliminamos absolutamente tos los registros de una tabla
+TRUNCATE TABLE animales;
 
 
 SELECT * FROM animales;
